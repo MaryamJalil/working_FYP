@@ -9,7 +9,7 @@ import {DeleteCategories, deleteCategory } from '../../../../actions/categoryAct
 import { toast, Slide } from "react-toastify";
 import Alert from '../../../../layout/Alert'
 
-const GetCategories = ({ auth, category, getAllCategories,deleteCategory, DeleteCategories }) => {
+const GetCategories = ({ auth, category, getAllCategories, DeleteCategories }) => {
 
     useEffect(() => {
         getAllCategories();
@@ -60,10 +60,10 @@ const GetCategories = ({ auth, category, getAllCategories,deleteCategory, Delete
 
 
                         {/* <td className="modaltext"><button onClick={() => deleteCategory(obj._id)}>Delete</button></td> */}
-
+                        <td className="modaltext"><button onClick={handleDelete}>Delete</button></td>
                     </tr>
                     )
-})}                        <td className="modaltext"><button onClick={handleDelete}>Delete</button></td>
+})}                       
 
                 </tbody>
             </div>

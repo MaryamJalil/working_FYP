@@ -13,11 +13,7 @@ import axios from "axios";
 
 
   export const createCategory = (name, id) => async dispatch => {
-    // const config = {
-    //   headers: {
-    //     'Content-Type': ' application/json'
-    //   }
-    // }
+   
     setAuthToken(localStorage.getItem("token"))
     const body = {name};
     try {
@@ -97,7 +93,7 @@ export const DeleteCategories = (_id,userId) => async dispatch => {
   if (window.confirm('Do you want to permanently delete Manager account? This can NOT be undone!')) {
 
   try {
-    const res = await axiosInstance.delete(`api/categories/${_id}/${userId}`);
+    const res = await axiosInstance.delete(`api/category/${_id}`);
     dispatch({
       type: GET_CATEGORY_FAIL,
       payload: res.data
@@ -127,7 +123,7 @@ export const deleteCategory = _id => (dispatch) => {
   console.log("cdc")
   return new Promise((resolve, reject) => {
     axios
-      .delete(`api/categories/${_id}/delete`,localStorage.getItem("token") )
+      .delete(`api/category/${_id}`,localStorage.getItem("token") )
       .then(res => {
         let successMessage = res.data.message;
 
