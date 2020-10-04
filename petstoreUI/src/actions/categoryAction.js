@@ -2,12 +2,15 @@ import {
   ADD_CATEGORY_SUCCESS,
   ADD_CATEGORY_FAIL, 
   GET_CATEGORY_SUCCESS, GET_CATEGORY_FAIL,
-  
+  DELETE_CATEGORY_SUCCESS, DELETE_CATEGORY_FAILURE
   } from './types';
   import setAuthToken from '../config/SetAuthToken';
   import {axiosInstance} from '../config/utilities'
   import {setAlert} from './alertAction'
-  
+
+// import { setAuthToken } from "../auth-actions/setAuthToken";
+import axios from "axios";
+
 
   export const createCategory = (name, id) => async dispatch => {
     // const config = {
@@ -49,7 +52,7 @@ import {
         payload: res.data
       });
        dispatch(setAlert("Category Added", 'success'));
-
+console.log(res)
     } catch (err) {
       const errors = err.response.data.errors;
       
@@ -88,8 +91,8 @@ export const UpdateCategories = (name,_id,userId) => async dispatch => {
 
 }
 }
-export const DeleteCategories = (name,_id,userId) => async dispatch => {
- 
+export const DeleteCategories = (_id,userId) => async dispatch => {
+ console.log("heyyyyyy")
   setAuthToken(localStorage.getItem("token"))
   if (window.confirm('Do you want to permanently delete Manager account? This can NOT be undone!')) {
 
@@ -115,4 +118,44 @@ export const DeleteCategories = (name,_id,userId) => async dispatch => {
 }
 }
 }
-  
+
+
+
+export const deleteCategory = _id => (dispatch) => {
+  // setAuthToken(localStorage.getItem("token"))
+
+  console.log("cdc")
+  return new Promise((resolve, reject) => {
+    axios
+      .delete(`api/categories/${_id}/delete`,localStorage.getItem("token") )
+      .then(res => {
+        let successMessage = res.data.message;
+
+        dispatch(deleteCategorySuccess(_id, successMessage));
+        resolve(res);
+      })
+      .catch(error => {
+        dispatch(deleteCategoryFailure(error.message));
+        reject(error);
+      });
+  });
+};
+
+const deleteCategorySuccess = (_id, successMessage) => {
+  return {
+    type: DELETE_CATEGORY_SUCCESS,
+    payload: {
+      _id,
+      successMessage
+    }
+  };
+};
+
+const deleteCategoryFailure = error => {
+  return {
+    type: DELETE_CATEGORY_FAILURE,
+    payload: {
+      error
+    }
+  };
+};

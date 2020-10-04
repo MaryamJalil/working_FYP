@@ -1,8 +1,13 @@
-import {GET_CATEGORY_SUCCESS, GET_CATEGORY_FAIL } from '../actions/types';
+import {GET_CATEGORY_SUCCESS, GET_CATEGORY_FAIL,    DELETE_CATEGORY_SUCCESS,
+    DELETE_CATEGORY_FAILURE, } from '../actions/types';
 
 
 const initialState = {
-    category_list: []
+    category_list: [],
+    categories: [],
+    loading: false,
+    error: null,
+    success: null
 }
 
 export default (state=initialState, action) => { 
@@ -18,10 +23,21 @@ export default (state=initialState, action) => {
             return{
                 ...state,
             }
-            // case DELETE_CATEGORY:
-            // return{
-            //     ...state,
-            // }
+            case DELETE_CATEGORY_SUCCESS:
+                return {
+                    ...state,
+                    categories: state.categories.filter(
+                        cat => cat._id !== action.payload._id
+                    ),
+                    error: null,
+                    success: action.payload.successMessage
+                };
+            case DELETE_CATEGORY_FAILURE:
+                return {
+                    ...state,
+                    error: action.payload.error,
+                    success: null
+                };
         default:
             return state;
     }
