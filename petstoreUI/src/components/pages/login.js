@@ -8,7 +8,7 @@ import Alert from '../../layout/Alert'
 import { AiOutlineUser } from "react-icons/ai";
 
 
-import { login } from '../../actions/authAction'
+import { login } from '../../actions/authActions/authAction'
 
 
 const Login=({login, auth})=> {

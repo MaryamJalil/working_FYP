@@ -12,9 +12,10 @@ import store from './store';
 
 
 
-import  DoctorPrivateRoute from '../src/auth/DoctorPrivateRoute';
-import DoctorDrawer from './components/doctor/doctorDrawer';
-import dashboard from './components/doctor/Dashboard/dashboard';
+import  DoctorPrivateRoute from './privateRoutes/DoctorPrivateRoute';
+import doctorRoutes from './components/doctor/doctorRoutes'
+// import DoctorDrawer from './components/doctor/doctorDrawer';
+// import dashboard from './components/doctor/Dashboard/dashboard';
 import Home from './components/doctor/home/Home';
 import Appointments from './components/doctor/Appointments/Appointments';
 import Location from './components/doctor/Location/location';
@@ -22,20 +23,18 @@ import EditAndDelete from './components/doctor/Appointments/EditAndDelete';
 import Account from './components/doctor/Account/Account';
 import Login from './components/pages/login';
 
-import SellerPrivateRoute from '../src/auth/SellerPrivateRoute'
+import SellerPrivateRoute from './privateRoutes/SellerPrivateRoute'
 
 import Seller from './components/seller/Seller'
 import ShopkeeperDrawer from './components/seller/shopkeeperDrawer';
 import SellerDashboard from './components/seller/Dashboard/SellerDashboard'
-import PetProducts from './components/seller/petproducts/PetProducts';
-import Catproducts from './components/seller/petproducts/Catproducts';
-import Dogproducts from './components/seller/petproducts/Dogproducts';
-import AddProducts from './components/seller/petproducts/AddProducts';
-import Showproducts from './components/seller/petproducts/Showproducts';
+// import PetProducts from './components/seller/petproducts/PetProducts';
+// import Showproducts from './components/seller/petproducts/Showproducts';
 import sellerHome from './components/seller/Home/sellerHome';
-import Inventory from './components/seller/Inventory/Inventory';
-import Pets from './components/seller/pets/Pets';
-import petSelling from './components/seller/pets/petSelling';
+// import Inventory from './components/seller/Inventory/Inventory';
+// import Pets from './components/seller/pets/Pets';
+// import petSelling from './components/seller/pets/petSelling';
+// import Product from './components/seller/petproducts/products/Product';
 
 import AddPets from './components/seller/pets/AddPets';
 import SavePets from './components/seller/pets/SavePets';
@@ -43,15 +42,16 @@ import sellerOrder from './components/seller/Orders/sellerOrder';
 import sellerReports from './components/seller/Report/sellerReports';
 import sellerProfile from './components/seller/userprofile/sellerProfile';
 
-import PharmacistPrivateRoute from '../src/auth/PharmacistPrivateRoute';
+import PharmacistPrivateRoute from './privateRoutes/PharmacistPrivateRoute';
 import PharmacistDrawer from './components/pharmacist/pharmacistDrawer';
 import pharmacistDashboard from './components/pharmacist/Dashboard/pharmacistDashboard';
 import pharmacistNotifications from './components/pharmacist/pharmacistHome/pharmacistNotifications';
-import Pharmacy from './components/pharmacist/Pharmacy/Pharmacy';
-import AddPharmacy from './components/pharmacist/Pharmacy/AddPharmacy'
-import Pharmacypicture from './components/pharmacist/Pharmacy/Pharmacypicture';
-import VaccinesPicture from './components/pharmacist/Pharmacy/VaccinesPicture';
-import pharmacyInventory from './components/pharmacist/pharmacyInventory/pharmacyinventory';
+// import Pharmacy from './components/pharmacist/Pharmacy/Pharmacy';
+// import AddPharmacy from './components/pharmacist/Pharmacy/AddPharmacy'
+// import Pharmacypicture from './components/pharmacist/Pharmacy/Pharmacypicture';
+// import VaccinesPicture from './components/pharmacist/Pharmacy/VaccinesPicture';
+// import pharmacyInventory from './components/pharmacist/pharmacyInventory/pharmacyinventory';
+import Pharmacist from './components/pharmacist/Pharmacist'
 import PharmacyOrders from './components/pharmacist/Orders/PharmacyOrders';
 import PharmacyReport from './components/pharmacist/Report/PharmacyReports';
 import PharmacistProfile from './components/pharmacist/userprofile/PharmacistProfile';
@@ -65,11 +65,11 @@ import petlost from './components/mainpage/petlost';
 import Blog from './components/mainpage/Blog';
 import Footer from './components/mainpage/Footer';
 
-import CustomerPrivateRoute from '../src/auth/CustomerPrivateRoute'
-import CustomerDrawer from './components/customer/Customerdrawer';
+import CustomerPrivateRoute from './privateRoutes/CustomerPrivateRoute'
+// import CustomerDrawer from './components/customer/Customerdrawer';
+import Customer from './components/customer/Customer'
 import makeportfolio from './components/customer/Portfolio/makeportfolio'
 import customerAccount from './components/customer/CustomerAccount/customerAccount';
-import CustomerDashboard from './components/customer/customerDashboard/customerDashboard';
 import ViewPortfolio from './components/customer/customerDashboard/viewPortfolio';
 import DisplayProducts from './components/customer/customerDashboard/displayProducts';
 import DisplayPets from './components/customer/ShowPets/displayPets';
@@ -77,7 +77,7 @@ import TakeAppointment from './components/customer/CustomerAppointments/TakeAppo
 import CustomerHome from './components/customer/CustomerHome/customerHome';
 import CustomerPharmacy from './components/customer/CustomerPharmacy/customerPharmacy'
  
-import AdminPrivateRoute from '../src/auth/AdminPrivateRoute'
+import AdminPrivateRoute from './privateRoutes/AdminPrivateRoute'
 import AdminDrawer from './components/admin/AdminDrawer';
 import AdminAccount from './components/admin/AdminAccount/AdminAccount';
 import AdminNotifications from './components/admin/AdminHome/AdminNotifications';
@@ -88,6 +88,7 @@ import DoctorNotifications from './components/doctor/DoctorNotifications/DoctorN
 
 
 import HomePage from './components/seller/petproducts/HomePage';
+import Medi from './components/customer/ShowPharmacy/Medi';
 
 
 // if (localStorage.token) {
@@ -122,19 +123,25 @@ function App() {
       <Route path="/register"  exact component={Signup} />
 
       {/* Customer */}
-      <Route path="/customer"  component={CustomerDrawer} />
-      <Route path="/customer/portfolio"  component={makeportfolio} />
+      {/* <Route path="/customer"  component={CustomerDrawer} /> */}
+      {/* <Route path="/customer/portfolio"  component={makeportfolio} /> */}
+      <CustomerPrivateRoute path="/customer" component={Customer} />
+
+
       <Route path="/customer/account"  component={customerAccount} />
       <Route path="/customer/login"  component={Login} />
-      <Route path="/customer/dashboard"  component={CustomerDashboard} />
+      <Route path="/customer"  component={Medi} />
 
-      <Route path="/customer/petportfolio"  component={ViewPortfolio} />
-      <Route path="/customer/display"  component={DisplayProducts} />
+
+      {/* <Route path="/customer/dashboard"  component={CustomerDashboard} /> */}
+
+      {/* <Route path="/customer/petportfolio"  component={ViewPortfolio} /> */}
+      {/* <Route path="/customer/display"  component={DisplayProducts} />
       <Route path="/customer/pets"  component={DisplayPets} />
-      <Route path="/customer/takeappointment"  component={TakeAppointment} />
+      <Route path="/customer/takeappointment"  component={TakeAppointment} /> */}
       {/* <Route path="/customer/takeappointment"  component={Location} /> */}a
-      <Route path="/customer/home"  component={CustomerHome} />
-      <Route path="/customer/pharmacy"  component={CustomerPharmacy} />
+      {/* <Route path="/customer/home"  component={CustomerHome} />
+      <Route path="/customer/pharmacy"  component={CustomerPharmacy} /> */}
 
 
       {/* Admin */}
@@ -150,8 +157,10 @@ function App() {
 
 
          {/* Doctor */}
-         < Route path="/doctor"  component={DoctorDrawer} />
-         < Route path="/doctor" exact component={dashboard} />
+         {/* < Route path="/doctor"  component={DoctorDrawer} /> */}
+         {/* < Route path="/doctor" exact component={dashboard} /> */}
+         <DoctorPrivateRoute path="/doctor" component={doctorRoutes} />
+
           < Route path="/doctor/home" component={Home} />
          < Route path="/doctor/addappointment" component={Appointments} />
          < Route path="/doctor/location" component={Location} />
@@ -164,30 +173,30 @@ function App() {
 
 
         {/* <ShopkeeperDrawer/> */}
-         {/* <SellerPrivateRoute path="/seller/home" component={sellerHome} />
+         <SellerPrivateRoute path="/seller/home" component={sellerHome} />
          <SellerPrivateRoute path="/seller"  component={ShopkeeperDrawer} />
-         <SellerPrivateRoute path="/seller/homepage" component={HomePage}/> */}
+         <SellerPrivateRoute path="/seller/homepage" component={HomePage}/>
 
       <SellerPrivateRoute path="/seller" component={Seller} />
          
          {/* <SellerPrivateRoute path="/seller/category" component={AddCategory}/> */}
          {/* <SellerPrivateRoute path="/seller/create/category" component={AddCategory}/> */}
 
-         {/* <SellerPrivateRoute path="/seller" exact component={SellerDashboard} />
+         {/* <SellerPrivateRoute path="/seller" exact component={SellerDashboard} /> */}
         <SellerPrivateRoute path="/seller/home" component={sellerHome} />
-        <SellerPrivateRoute path="/seller/product" component={PetProducts} />
+        {/* <SellerPrivateRoute path="/seller/product" component={PetProducts} />
         <SellerPrivateRoute path="/seller/petproducts" component={Catproducts} />
         <SellerPrivateRoute path="/seller/petproducts" component={Dogproducts} /> */}
+                {/* <SellerPrivateRoute path="/seller/product" component={Product} /> */}
 
-        <SellerPrivateRoute path="/seller/productsave" component={Showproducts} />
-
-        <SellerPrivateRoute path="/seller/addproducts" component={AddProducts}/>       
+        {/* <SellerPrivateRoute path="/seller/productsave" component={Showproducts} /> */}
 
 
-         <SellerPrivateRoute path="/seller/stock" component={Inventory} />
-         <SellerPrivateRoute path="/seller/pets" component={petSelling} />
 
-         <SellerPrivateRoute path="/seller/petpic" component={Pets} />
+         {/* <SellerPrivateRoute path="/seller/stock" component={Inventory} /> */}
+         {/* <SellerPrivateRoute path="/seller/pets" component={petSelling} /> */}
+
+         {/* <SellerPrivateRoute path="/seller/petpic" component={Pets} /> */}
 
          <SellerPrivateRoute path="/seller/addpets" component={AddPets} />
          <SellerPrivateRoute path="/seller/savepets" component={SavePets} />
@@ -202,12 +211,13 @@ function App() {
             <Route path="/pharmacist"  component={PharmacistDrawer} />
             <Route path="/pharmacist" exact component={pharmacistDashboard} />
             <Route path="/pharmacist/home" component={pharmacistNotifications} />
-            <Route path="/pharmacist/pharmacy" component={Pharmacy} />
-            <Route path="/pharmacist/pharmacy/addpharmacy" component={AddPharmacy} />
-            <Route path="/pharmacist/pharmacy/pharmacypicture" component={Pharmacypicture} />
-            <Route path="/pharmacist/pharmacy/vaccinepicture" component={VaccinesPicture} />
-            <Route path="/pharmacist/inventory" component={pharmacyInventory} />
+            {/* <Route path="/pharmacist/pharmacy" component={Pharmacy} /> */}
+            {/* <Route path="/pharmacist/pharmacy/addpharmacy" component={AddPharmacy} /> */}
+            {/* <Route path="/pharmacist/pharmacy/pharmacypicture" component={Pharmacypicture} /> */}
+            {/* <Route path="/pharmacist/pharmacy/vaccinepicture" component={VaccinesPicture} /> */}
+            {/* <Route path="/pharmacist/inventory" component={pharmacyInventory} /> */}
             <Route path="/pharmacist/orders" component={PharmacyOrders} />
+            <PharmacistPrivateRoute path="/pharmacist" component={Pharmacist}/>
             <Route path="/pharmacist/reports" component={PharmacyReport} />
             <Route path="/pharmacist/userprofile" component={PharmacistProfile} />
             <Route path="/pharmacist/login" component={Login} />   

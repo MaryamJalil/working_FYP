@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Staff from './Staff'
+// import Staff from './Staff'
 import DoctorProfile from './DoctorProfile';
 
 export default class Home extends Component {
@@ -8,7 +8,7 @@ export default class Home extends Component {
                       <div className="container" >
 
                 <DoctorProfile/>
-                <Staff/>
+                {/* <Staff/> */}
                 </div>
 
         )

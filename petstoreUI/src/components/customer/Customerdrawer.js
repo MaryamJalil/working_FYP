@@ -176,15 +176,17 @@ export default function CustomerDrawer() {
         <div className={classes.drawerHeader}>
           <MenuIcon  onClick={handleDrawerClose}   style={{  backgroundcolor:"#ffffff"  }}/>
         </div>
-        <div className="container-fluid" style={{backgroundColor:"#06d6a0"}}>
+        {/* dashboard color */}
+        <div className="container-fluid" style={{backgroundColor:"#E1BEE7"}}>
         <List>
-        {/* <AiFillHome size={25} /> */}
-        {/* <Image src={mike}  /> */}
-        <Image src={carol} roundedCircle style={{width:'100px', marginBottom:'10px',marginLeft:'55px',marginTop:"25px"}} />
+   
+        <Image src={carol} roundedCircle style={{width:'100px', marginBottom:'10px',
+        marginLeft:'55px',marginTop:"25px"}} />
 
 
 
-        <Link to="/" className="navbar-brand"  bg="dark" variant="dark" style={{color:"#212529" ,padding:'20px'}}>
+        <Link to="/" className="navbar-brand"  bg="dark" variant="dark" 
+        style={{color:"#212529" ,padding:'20px'}}>
         Customer</Link>
 
         </List>
@@ -194,7 +196,8 @@ export default function CustomerDrawer() {
         <List>
         <AiFillHome size={25}  style={{ marginRight:"10px"}}/>
 
-        <Link to="/customer/home"  bg="dark" variant="dark"  style={{color:"#212529"}}>Home</Link>
+        <Link to="/customer/home"  bg="dark" variant="dark"  
+        style={{color:"#212529"}}>Home</Link>
 
         </List>
         </Container>
@@ -202,7 +205,8 @@ export default function CustomerDrawer() {
         <List>
         <AiOutlineShoppingCart size={25}  style={{ marginRight:"10px"}}/>
 
-        <Link to="/customer/dashboard"  bg="dark" variant="dark"  style={{color:"#212529"}}>Products</Link>
+        <Link to="/customer/category"  bg="dark" variant="dark"  
+        style={{color:"#212529"}}>Products</Link>
 
         </List>
         </Container>
@@ -210,7 +214,8 @@ export default function CustomerDrawer() {
         
         <List>
         <MdPets size={25} style={{ marginRight:"10px"}} />
-        <Link to="/customer/pets"   bg="dark" variant="dark"  style={{color:"#212529"}}>Pets</Link>
+        <Link to="/customer/pets"   bg="dark" variant="dark"  
+        style={{color:"#212529"}}>Pets</Link>
 
         </List>
         </Container>
@@ -224,7 +229,8 @@ export default function CustomerDrawer() {
 
 <AiFillReconciliation size={25}/>
 
-  <Link to="/customer/takeappointment" className="nav-link" style={{color:"#212529"}}>Appointment</Link>
+  <Link to="/customer/takeappointment" className="nav-link"
+   style={{color:"#212529"}}>Appointment</Link>
   </div>
 
 </List>
@@ -237,7 +243,8 @@ export default function CustomerDrawer() {
 
 <AiFillMedicineBox size={25}/>
 
-  <Link to="/customer/pharmacy" className="nav-link" style={{color:"#212529"}}>Pharmacy</Link>
+  <Link to="/customer/pharmacy" className="nav-link" 
+  style={{color:"#212529"}}>Pharmacy</Link>
   </div>
 
 </List>
@@ -251,7 +258,8 @@ export default function CustomerDrawer() {
           <div  className="d-flex justify-content-start">
         <AiFillContainer size={25}/>
          
-                  <Link to="/customer/portfolio" className="nav-link" style={{color:"#212529"}}>Pet Portfolio</Link>
+                  <Link to="/customer/portfolio" className="nav-link" 
+                  style={{color:"#212529"}}>Pet Portfolio</Link>
                   </div>
 
         </List>
@@ -264,7 +272,8 @@ export default function CustomerDrawer() {
           <div  className="d-flex justify-content-start">
         <RiInboxArchiveLine size={25}/>
          
-                  <Link to="/customer/chat" className="nav-link" style={{color:"#212529"}}>Chat</Link>
+                  <Link to="/customer/chat" className="nav-link" 
+                  style={{color:"#212529"}}>Chat</Link>
                   </div>
 
         </List>
@@ -276,7 +285,8 @@ export default function CustomerDrawer() {
         <List>
           <div  className="d-flex justify-content-start">
         <RiAccountPinBoxLine size={25} />
-          <Link to="/customer/account" className="nav-link" style={{color:"#212529"}}>Account</Link>
+          <Link to="/customer/account" className="nav-link" 
+          style={{color:"#212529"}}>Account</Link>
           </div>
 
         </List>
@@ -287,7 +297,8 @@ export default function CustomerDrawer() {
           <div  className="d-flex justify-content-start">
         <GoSignOut size={25}/>
           
-                    <Link to="/customer/login" className="nav-link" style={{color:"#212529"}}>Log out</Link>
+                    <Link to="/customer/login" className="nav-link" 
+                    style={{color:"#212529"}}>Log out</Link>
                     </div>
 
         </List>

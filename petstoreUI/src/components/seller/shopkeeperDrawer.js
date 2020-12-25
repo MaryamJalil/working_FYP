@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    
+    backgroundcolor: '#FF8A80'
   },
   drawerHeader: {
     display: 'flex',
@@ -144,7 +144,7 @@ export default function ShopkeeperDrawer() {
           >
             <div style={{color: '#ffffff'}}>
 
-            <MenuIcon  />
+            <MenuIcon      />
             </div>
           </IconButton >
           <Typography variant="h6">
@@ -164,14 +164,15 @@ export default function ShopkeeperDrawer() {
         open={open}
         classes={{
           paper: classes.drawerPaper,
+        //  backgroundcolor: '#FF8A80'
         }}
       >
 
-        <div className={classes.drawerHeader}>
+        <div className={classes.drawerHeader} >
           <MenuIcon  onClick={handleDrawerClose}   style={{  backgroundcolor:"#ffffff"  }}/>
         </div>
         
-        <div className="container-fluid" style={{backgroundColor:"#ffb4a2"}}>
+        <div className="container-fluid" >
         <List>
         {/* <AiFillHome size={25} /> */}
         <Image src={marc} roundedCircle style={{width:'100px', flexDirection:'row',marginLeft:'45px',marginTop:"30px"
@@ -218,12 +219,12 @@ export default function ShopkeeperDrawer() {
 
 <GoDatabase size={25}/>
 
-  <Link to="/seller/product" className="nav-link" style={{color:"#6d6d6d"}}>Products</Link>
+  <Link to="/seller/category" className="nav-link" style={{color:"#6d6d6d"}}>Products</Link>
   </div>
 
 </List>
 </Container>
-<Container>
+{/* <Container>
 
 <List>
   <div  className="d-flex justify-content-start">
@@ -234,8 +235,8 @@ export default function ShopkeeperDrawer() {
 
 </List>
 
-</Container>
-<Container>
+</Container> */}
+{/* <Container>
 
 <List>
   <div  className="d-flex justify-content-start">
@@ -246,7 +247,7 @@ export default function ShopkeeperDrawer() {
 
 </List>
 
-</Container>
+</Container> */}
 
 
         <Container >
@@ -304,7 +305,7 @@ export default function ShopkeeperDrawer() {
           <div  className="d-flex justify-content-start"  >
         <GoSignOut size={25}/>
           
-                    <Link to="/seller/login" className="nav-link" style={{color:"#6d6d6d",backgroundColor:"#ffb4a2"}}>Log out</Link>
+ <Link to="/seller/login" className="nav-link" style={{color:"#6d6d6d"}}>Log out</Link>
                     </div>
                   
 
